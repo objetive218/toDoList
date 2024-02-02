@@ -4,6 +4,6 @@ export default function task(title, description, date, project) {
     title: title,
     description: description,
     date: date,
-    project: project
+    project: project,
   };
 }

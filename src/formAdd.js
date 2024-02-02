@@ -1,6 +1,8 @@
+import "./css/formAdd.css"
 export default function formAdd() {
   const container = document.createElement("div");
   container.innerHTML = `<h3>New Task</h3>
+            <button id="closeForm">X</button>
         <form action="#" id="formAddTask">
             <label for="name">Task Name</label>
             <input type="text" id="name" name="name">
@@ -10,6 +12,7 @@ export default function formAdd() {
             <textarea name="description" id="description" cols="30" rows="6"></textarea>
             <button type="submit">Submit</button>
         </form>`;
-
+  container.setAttribute("id", "containerForm")
+  container.setAttribute("class", "active");
   return container;
 }
