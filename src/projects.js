@@ -3,6 +3,11 @@ import "./css/projects.css";
 import printTask from "./addTask";
 import close from "./images/close.svg";
 
+let arrProjects = [];
+export function saveLocalProjects() {
+  localStorage.setItem("arrayProjects", JSON.stringify(arrProjects));
+}
+
 export function createProject() {
   let create = document.createElement("form");
   create.innerHTML = `<input type="text" placeholder="Enter project name" id="newProject">
@@ -68,5 +73,77 @@ export function projects() {
     listTask(nameProject);
     count += 1;
   }
+}
+export function projectCheck() {
+  let listP = document.getElementById("listProject");
+  let inputP = document.getElementById("newProject");
+  arrProjects.map(e, i){
+    let boxProject = document.createElement("div");
+    let h3 = document.createElement("h3");
+    let closeImgP = document.createElement("img");
+    closeImgP.src = close;
+    h3.textContent = e;
+    closeImgP.setAttribute("class", "active");
+    boxProject.setAttribute("class", "boxProject");
+    boxProject.setAttribute("id", `boxPro${i}`);
+    h3.addEventListener("click", (e) => {
+      e.preventDefault();
+      listTask(nameProject);
+      printTask(nameProject);
+    });
+    boxProject.addEventListener("mouseenter", () => {
+      closeImgP.classList.toggle("active");
+    });
+    boxProject.addEventListener("mouseleave", () => {
+      closeImgP.classList.toggle("active");
+    });
+    closeImgP.addEventListener("click", () => {
+      document.getElementById("listProject").removeChild(boxProject);
+    });
+    boxProject.appendChild(h3);
+    boxProject.appendChild(closeImgP);
+    listP.appendChild(boxProject);
+    listTask(e);
+  }
+
+  if (inputP.value === "") {
+    alert("Enter a name for the project");
+  } else {
+    let nameProject = inputP.value;
+    //let taskRem = document.getElementById("secTask");
+    let boxProject = document.createElement("div");
+    let h3 = document.createElement("h3");
+    let closeImgP = document.createElement("img");
+    closeImgP.src = close;
+    h3.textContent = nameProject;
+    closeImgP.setAttribute("class", "active");
+    boxProject.setAttribute("class", "boxProject");
+    boxProject.setAttribute("id", `boxPro${count}`);
+    h3.addEventListener("click", (e) => {
+      e.preventDefault();
+      listTask(nameProject);
+      printTask(nameProject);
+    });
+    boxProject.addEventListener("mouseenter", () => {
+      closeImgP.classList.toggle("active");
+    });
+    boxProject.addEventListener("mouseleave", () => {
+      closeImgP.classList.toggle("active");
+    });
+    closeImgP.addEventListener("click", () => {
+      document.getElementById("listProject").removeChild(boxProject);
+    });
+    boxProject.appendChild(h3);
+    boxProject.appendChild(closeImgP);
+    listP.appendChild(boxProject);
+    listTask(nameProject);
+    count += 1;
+  }
+}
+export function addProject(e) {
+  let listP = document.getElementById("listProject");
+  let inputP = document.getElementById("newProject");
+  let nameProject = inputP.value;
+  arrProjects.push(nameProject);
 }
 // añadir evento boton eleminar, y evento mouseenter a la caja
