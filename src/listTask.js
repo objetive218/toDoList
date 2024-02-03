@@ -73,7 +73,7 @@ export function createListTask() {
     formId.classList.toggle("active");
   });
 
-  title.textContent = "All";
+  title.textContent = "All Task";
   seccion.appendChild(title);
   seccion.appendChild(div);
   seccion.appendChild(add);
@@ -93,7 +93,7 @@ export function listTask(name) {
   console.log(name);
 
   switch (title.textContent) {
-    case "All":
+    case "All Task":
       console.log("all");
       btnAddList.classList.add("active");
 
