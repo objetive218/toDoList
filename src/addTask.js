@@ -4,8 +4,13 @@ import { btnAddTask, form, formId } from ".";
 import close from "./images/close.svg";
 import dot_vertical from "./images/dot_vertical.svg";
 import edit from "./images/edit.svg";
+let arrTask = JSON.parse(localStorage.getItem("arrayTask"))
+  ? JSON.parse(localStorage.getItem("arrayTask"))
+  : [];
 
-let arrTask = [];
+export function saveLocal() {
+  localStorage.setItem("arrayTask", JSON.stringify(arrTask));
+}
 
 export default function printTask(proj) {
   let content = document.querySelector(`#taskContent`);
@@ -37,6 +42,7 @@ export default function printTask(proj) {
           });
           closeImg.addEventListener("click", () => {
             arrTask.splice(i, 1);
+            saveLocal();
             document.getElementById(`box${i}`).classList.add("active");
           });
           content.appendChild(box);
@@ -68,6 +74,7 @@ export default function printTask(proj) {
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
+              saveLocal();
               document.getElementById(`box${i}`).classList.add("active");
             });
             content.appendChild(box);
@@ -105,6 +112,7 @@ export default function printTask(proj) {
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
+              saveLocal();
               document.getElementById(`box${i}`).classList.add("active");
             });
             content.appendChild(box);
@@ -140,6 +148,7 @@ export default function printTask(proj) {
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
+              saveLocal();
               document.getElementById(`box${i}`).classList.add("active");
             });
             content.appendChild(box);
@@ -154,7 +163,7 @@ export default function printTask(proj) {
 
   // agregar una validacion para que el map solo imprima segun el proyecto
   switch (proj) {
-    case "All":
+    case "All Task":
       test(null, null);
       // view all task
       break;
@@ -188,6 +197,8 @@ export function addTask(e) {
     titleValue
   );
   arrTask.push(newTask);
+  saveLocal();
+  console.log(JSON.parse(localStorage.getItem("arrayTask")));
   console.log(format(new Date(), "MM/dd/yyyy"));
   console.log(arrTask);
   printTask(titleValue);
