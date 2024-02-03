@@ -77,7 +77,7 @@ export function projects() {
 export function projectCheck() {
   let listP = document.getElementById("listProject");
   let inputP = document.getElementById("newProject");
-  arrProjects.map(e, i){
+  arrProjects.map((e, i) => {
     let boxProject = document.createElement("div");
     let h3 = document.createElement("h3");
     let closeImgP = document.createElement("img");
@@ -104,7 +104,7 @@ export function projectCheck() {
     boxProject.appendChild(closeImgP);
     listP.appendChild(boxProject);
     listTask(e);
-  }
+  });
 
   if (inputP.value === "") {
     alert("Enter a name for the project");
