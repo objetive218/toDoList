@@ -24,7 +24,7 @@ export default function menu() {
   const btnAdd = document.createElement("button");
   btnAdd.textContent = "Add Project";
   btnAdd.setAttribute("id", "btnAdd");
-  createLi("All", listNav);
+  createLi("All Task", listNav);
   createLi("Today", listNav);
   createLi("This week", listNav);
   div.appendChild(listNav);
