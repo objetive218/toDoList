@@ -5,11 +5,11 @@ export default function formAdd() {
             <button id="closeForm">X</button>
         <form action="#" id="formAddTask">
             <label for="name">Task Name</label>
-            <input type="text" id="name" name="name">
+            <input placeholder="Task Name" type="text" id="name" name="name">
             <label for="date">Due Date</label>
             <input type="date" id="date" name="date">
             <label for="">Description</label>
-            <textarea name="description" id="description" cols="30" rows="6"></textarea>
+            <textarea placeholder="Description of your Project" name="description" id="description" cols="30" rows="6"></textarea>
             <button type="submit">Submit</button>
         </form>`;
   container.setAttribute("id", "containerForm")
