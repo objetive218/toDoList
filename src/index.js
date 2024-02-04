@@ -5,6 +5,7 @@ import { listTask, createListTask } from "./listTask";
 import menu from "./menu";
 import header from "./header";
 import { createProject } from "./projects";
+import checkProject from "./checkProject";
 
 const main = document.querySelector("#content");
 main.appendChild(formAdd());
@@ -32,6 +33,7 @@ btnAdd.addEventListener("click", (e) => {
   boxId.classList.toggle("active");
   boxId.reset();
 });
+checkProject();
 //export let taskContent = document.getElementById("taskContent");
 
 //console.log(btnAddTask)
