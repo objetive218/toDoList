@@ -23,11 +23,12 @@ header {
     border-bottom: solid #ffffff 2px;
     color: #ffffff;
     border-radius: 0px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header h1 {
-    
-}
+header h1 {}
 
 #naveg {
     display: flex;
