@@ -12,11 +12,12 @@ export function saveLocalProjects() {
 
 export function createProject() {
   let create = document.createElement("form");
-  create.innerHTML = `<input type="text" placeholder="Enter project name" id="newProject">
+  create.innerHTML = `<input type="text" placeholder="Enter project name" id="newProject" required>
         `;
   //asign to button function projects()
   let btnc = document.createElement("button");
   let btnd = document.createElement("button");
+  let inputP = document.getElementById("newProject");
   btnc.setAttribute("id", "createP");
   btnc.textContent = "Create";
   btnd.setAttribute("id", "cancelP");
@@ -39,10 +40,12 @@ export function createProject() {
   return create;
 }
 
-export function projects() {
+export function projects(validation) {
   let listP = document.getElementById("listProject");
   let inputP = document.getElementById("newProject");
   listP.innerHTML = "";
+  console.log(inputP.value);
+
   arrProjects.map((element, index) => {
     let boxProject = document.createElement("div");
     let h3 = document.createElement("h3");
@@ -85,6 +88,10 @@ export function addProject() {
   let listP = document.getElementById("listProject");
   let inputP = document.getElementById("newProject");
   let nameProject = inputP.value;
-  arrProjects.push(nameProject);
+  if (inputP.value === "") {
+    alert("project need a name");
+  } else {
+    arrProjects.push(nameProject);
+  }
   saveLocalProjects();
 }
