@@ -34,7 +34,7 @@
 }
 
 #taskContent {
-    width: 1000px;
+    width: 100%;
 }
 
 .boxTask {
@@ -52,8 +52,41 @@
 .boxTask>img {
     width: 20px;
     height: 20px;
+
+}
+
+.boxTask * {
+    flex: 1;
+
+}
+
+.boxTask>span {
+    max-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: solid lightgreen 2px;
+    margin-left: 30px;
+
+}
+
+.boxTask>span::after {
+    max-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: solid lightgreen 2px;
+    margin-left: 30px;
+    animation: .5s linear 1s infinite alternate slidein;
 }
 
 .complete {
     text-decoration: line-through;
+    animation: .5s linear 1s infinite alternate slidein;
+}
+
+.completeSpan {
+    background-color: lightgreen !important;
+    border: solid rgba(14, 24, 58, 0.5) 1px !important;
+
 }
