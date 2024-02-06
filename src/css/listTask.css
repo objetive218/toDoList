@@ -47,6 +47,7 @@
     border: #0e183a solid 1px;
     align-items: center;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .boxTask>img {
