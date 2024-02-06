@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     list-style: none;
+    font-family: "Roboto Slab", serif;
 }
 
 #content {
@@ -20,6 +23,10 @@ header {
     border-bottom: solid #ffffff 2px;
     color: #ffffff;
     border-radius: 0px 0px 20px 0px;
+}
+
+header h1 {
+    
 }
 
 #naveg {
@@ -43,6 +50,7 @@ header {
 
 #naveg>ul>li {
     padding: 10px;
+    cursor: pointer;
 }
 
 #listProject {
@@ -56,6 +64,7 @@ header {
     color: #ffffff;
     border-radius: 20px;
     padding: 5px;
+    cursor: pointer;
 }
 
 #listProject>div {}
