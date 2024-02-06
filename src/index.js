@@ -1,7 +1,7 @@
 import "./css/index.css";
 import formAdd from "./formAdd";
 import { addTask } from "./addTask";
-import { listTask, createListTask } from "./listTask";
+import { createListTask } from "./listTask";
 import menu from "./menu";
 import header from "./header";
 import { createProject } from "./projects";
@@ -21,7 +21,7 @@ closeForm.addEventListener("click", () => {
   formId.classList.toggle("active");
 });
 
-//main.appendChild(listTask());
+
 main.appendChild(createListTask());
 main.appendChild(menu());
 let navegation = document.getElementById("naveg");
@@ -34,11 +34,4 @@ btnAdd.addEventListener("click", (e) => {
   boxId.reset();
 });
 checkProject();
-//export let taskContent = document.getElementById("taskContent");
 
-//console.log(btnAddTask)
-// function changeProject() {
-//   let taskRem = document.getElementById("secTask");
-//   main.removeChild(taskRem);
-//   main.appendChild(listTask("newName"));
-// }
