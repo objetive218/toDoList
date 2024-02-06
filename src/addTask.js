@@ -4,7 +4,7 @@ import { btnAddTask, form, formId } from ".";
 import close from "./images/close.svg";
 import dot_vertical from "./images/dot_vertical.svg";
 import edit from "./images/edit.svg";
-let arrTask = JSON.parse(localStorage.getItem("arrayTask"))
+export let arrTask = JSON.parse(localStorage.getItem("arrayTask"))
   ? JSON.parse(localStorage.getItem("arrayTask"))
   : [];
 
@@ -25,11 +25,14 @@ export default function printTask(proj) {
           let descrip = document.createElement("p");
           let date = document.createElement("h5");
           let closeImg = document.createElement("img");
+          let cir = document.createElement("span");
+          cir.textContent = "";
           closeImg.src = close;
           name.textContent = e.title;
           descrip.textContent = e.description;
           descrip.textContent = e.description;
           date.textContent = e.date;
+          box.appendChild(cir);
           box.appendChild(name);
           box.appendChild(descrip);
           box.appendChild(date);
@@ -39,6 +42,7 @@ export default function printTask(proj) {
           box.addEventListener("click", () => {
             name.classList.toggle("complete");
             descrip.classList.toggle("complete");
+            cir.classList.toggle("completeSpan");
           });
           closeImg.addEventListener("click", () => {
             arrTask.splice(i, 1);
@@ -57,11 +61,14 @@ export default function printTask(proj) {
             let descrip = document.createElement("p");
             let date = document.createElement("h5");
             let closeImg = document.createElement("img");
+            let cir = document.createElement("span");
+            cir.textContent = "";
             closeImg.src = close;
             name.textContent = e.title;
             descrip.textContent = e.description;
             descrip.textContent = e.description;
             date.textContent = e.date;
+            box.appendChild(cir);
             box.appendChild(name);
             box.appendChild(descrip);
             box.appendChild(date);
@@ -71,6 +78,7 @@ export default function printTask(proj) {
             box.addEventListener("click", () => {
               name.classList.toggle("complete");
               descrip.classList.toggle("complete");
+              cir.classList.toggle("completeSpan");
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
@@ -95,11 +103,14 @@ export default function printTask(proj) {
             let descrip = document.createElement("p");
             let date = document.createElement("h5");
             let closeImg = document.createElement("img");
+            let cir = document.createElement("span");
+            cir.textContent = "";
             closeImg.src = close;
             name.textContent = e.title;
             descrip.textContent = e.description;
             descrip.textContent = e.description;
             date.textContent = e.date;
+            box.appendChild(cir);
             box.appendChild(name);
             box.appendChild(descrip);
             box.appendChild(date);
@@ -109,6 +120,7 @@ export default function printTask(proj) {
             box.addEventListener("click", () => {
               name.classList.toggle("complete");
               descrip.classList.toggle("complete");
+              cir.classList.toggle("completeSpan");
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
@@ -131,11 +143,14 @@ export default function printTask(proj) {
             let descrip = document.createElement("p");
             let date = document.createElement("h5");
             let closeImg = document.createElement("img");
+            let cir = document.createElement("span");
+            cir.textContent = "";
             closeImg.src = close;
             name.textContent = e.title;
             descrip.textContent = e.description;
             descrip.textContent = e.description;
             date.textContent = e.date;
+            box.appendChild(cir);
             box.appendChild(name);
             box.appendChild(descrip);
             box.appendChild(date);
@@ -145,6 +160,7 @@ export default function printTask(proj) {
             box.addEventListener("click", () => {
               name.classList.toggle("complete");
               descrip.classList.toggle("complete");
+              cir.classList.toggle("completeSpan");
             });
             closeImg.addEventListener("click", () => {
               arrTask.splice(i, 1);
