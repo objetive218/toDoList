@@ -1,9 +1,8 @@
 import { endOfWeek, format, isWithinInterval, startOfWeek } from "date-fns";
 import task from "./task";
-import { btnAddTask, form, formId } from ".";
+import { form, formId } from ".";
 import close from "./images/close.svg";
-import dot_vertical from "./images/dot_vertical.svg";
-import edit from "./images/edit.svg";
+
 export let arrTask = JSON.parse(localStorage.getItem("arrayTask"))
   ? JSON.parse(localStorage.getItem("arrayTask"))
   : [];
@@ -16,7 +15,6 @@ export default function printTask(proj) {
   let content = document.querySelector(`#taskContent`);
   content.innerHTML = "";
   let test = function (actualP, b) {
-    // agregar segundo parametro a la funcion que se remplace con el projecto
     switch (b) {
       case null:
         arrTask.map((e, i) => {
@@ -177,23 +175,22 @@ export default function printTask(proj) {
     }
   };
 
-  // agregar una validacion para que el map solo imprima segun el proyecto
   switch (proj) {
     case "All Task":
       test(null, null);
-      // view all task
+      
       break;
     case "Today":
       test(format(new Date(), "MM/dd/yyyy"), "Today");
-      // view only today task
+      
       break;
     case "This week":
       test(proj, "This week");
-      // only view all week task
+      
       break;
     default:
       test(proj, "Project");
-      //map with the project name
+      
       break;
   }
 }
