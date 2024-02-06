@@ -1,6 +1,6 @@
 import { listTask } from "./listTask";
 import "./css/projects.css";
-import printTask from "./addTask";
+import printTask, { arrTask, saveLocal } from "./addTask";
 import close from "./images/close.svg";
 
 export let arrProjects = JSON.parse(localStorage.getItem("arrayProjects"))
@@ -38,45 +38,7 @@ export function createProject() {
   });
   return create;
 }
-let count = 0;
-// export function projects() {
-//   //const main = document.querySelector("#content");
-//   let listP = document.getElementById("listProject");
-//   let inputP = document.getElementById("newProject");
-//   if (inputP.value === "") {
-//     alert("Enter a name for the project");
-//   } else {
-//     let nameProject = inputP.value;
-//     //let taskRem = document.getElementById("secTask");
-//     let boxProject = document.createElement("div");
-//     let h3 = document.createElement("h3");
-//     let closeImgP = document.createElement("img");
-//     closeImgP.src = close;
-//     h3.textContent = nameProject;
-//     closeImgP.setAttribute("class", "active");
-//     boxProject.setAttribute("class", "boxProject");
-//     boxProject.setAttribute("id", `boxPro${count}`);
-//     h3.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       listTask(nameProject);
-//       printTask(nameProject);
-//     });
-//     boxProject.addEventListener("mouseenter", () => {
-//       closeImgP.classList.toggle("active");
-//     });
-//     boxProject.addEventListener("mouseleave", () => {
-//       closeImgP.classList.toggle("active");
-//     });
-//     closeImgP.addEventListener("click", () => {
-//       document.getElementById("listProject").removeChild(boxProject);
-//     });
-//     boxProject.appendChild(h3);
-//     boxProject.appendChild(closeImgP);
-//     listP.appendChild(boxProject);
-//     listTask(nameProject);
-//     count += 1;
-//   }
-// }
+
 export function projects() {
   let listP = document.getElementById("listProject");
   let inputP = document.getElementById("newProject");
@@ -102,15 +64,21 @@ export function projects() {
       closeImgP.classList.toggle("active");
     });
     closeImgP.addEventListener("click", () => {
+      for (const key of arrProjects) {
+        arrTask.map((e, i) => {
+          if (e.project === key) {
+            arrTask.splice(i, 1);
+          }
+        });
+      }
+      saveLocal();
       arrProjects.splice(index, 1);
       saveLocalProjects();
-      //projects();
       boxProject.classList.add("active");
     });
     boxProject.appendChild(h3);
     boxProject.appendChild(closeImgP);
     listP.appendChild(boxProject);
-    //listTask(element);
   });
 }
 export function addProject() {
@@ -120,4 +88,3 @@ export function addProject() {
   arrProjects.push(nameProject);
   saveLocalProjects();
 }
-// añadir evento boton eleminar, y evento mouseenter a la caja
